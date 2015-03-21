@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="bookTrackerApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>David Saunders' Book Tracker</title>
+	<link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" /
+</head>
+<body ng-controller="bookCtrl">
+	<div id="main" class="container">
+					<div class="row">
+			<h1>Book Tracker</h1>
+			<hr />
+		</div>
+		<div class="row">
+			<div ng-model="bookInfo" ng-repeat="(key, book) in bookList">
+			{{key}}
+				<div click-to-edit="book.author"></div> - <div click-to-edit="book.title"></div>
+				<a ng-click="removeBooks()">Delete</a>
+			<hr />
+			</div>
+		</div>
+		<div class="row">
+			<a href="#" class="btn btn-primary" ng-click="showAddForm = ! showAddForm">Add New Book</a>
+			<form name="newBookForm" ng-show="showAddForm">
+			Title: <input type="text" name="bookTitle" ng-model="bookInfo.title"/><br/><br/>
+			Author: <input type="text" name="bookAuthor" ng-model="bookInfo.author"/><br/><br/>
+			Start Date: <input type="text" name="bookStart" id="startDate" ng-model="bookInfo.startDate"/><br/><br/>
+			End Date: <input type="text" name="bookEnd" id="endDate" ng-model="bookInfo.endDate"/><br/><br/>
+			Comments: <textarea type="text" name="bookComments" ng-model="bookInfo.comments"></textarea>
+		</form>
+		<a href="#" class="btn btn-primary" ng-show="showAddForm" ng-click="addBooks(newBook)">Submit</a>
+		</div>
+
+
+
+
+	</div>
+
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+	<!-- Firebase & Angular Fire -->
+
+	<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+
+	<script src="application.js"></script>
+
+	<script type="text/javascript">
+		$(function() {
+		    $( "#startDate" ).datepicker();
+		    $( "#endDate" ).datepicker();
+		  });
+  </script>
+</body>
+</html>
