@@ -6,7 +6,8 @@
 	<title>David Saunders' Book Tracker</title>
 	<link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" /
+	<link rel="stylesheet" href="bower_components/font-awesome/font-awesome.mins.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
 </head>
 <body ng-controller="bookCtrl">
 	<div id="main" class="container">
@@ -25,7 +26,7 @@
 		<div class="row">
 			<a href="#" class="btn btn-primary" ng-click="showAddForm = ! showAddForm">Add New Book</a>
 			<form name="newBookForm" ng-show="showAddForm">
-			Title: <input type="text" name="bookTitle" ng-model="bookInfo.title"/><br/><br/>
+			<label for="bookTitle">Title:</label> <input type="text" name="bookTitle" ng-model="bookInfo.title"/><br/><br/>
 			Author: <input type="text" name="bookAuthor" ng-model="bookInfo.author"/><br/><br/>
 			Start Date: <input type="text" name="bookStart" id="startDate" ng-model="bookInfo.startDate"/><br/><br/>
 			End Date: <input type="text" name="bookEnd" id="endDate" ng-model="bookInfo.endDate"/><br/><br/>
@@ -41,8 +42,9 @@
 
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/components-modernizr/modernizr.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 
 	<!-- Firebase & Angular Fire -->
